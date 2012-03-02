@@ -7,6 +7,8 @@
 # http://en.wikipedia.org/wiki/Bencode
 # for usage see README
 #
+# don't use directly Ben* classes, use only PyBencoder with its
+# automagically methods encode() and decode()
 #
 # @author: Cristian Năvălici ncristian [at] lemonsoftware eu
 # @version: February - March 2012
