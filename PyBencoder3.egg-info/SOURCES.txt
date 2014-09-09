@@ -1,0 +1,13 @@
+CHANGES.txt
+MANIFEST.in
+README.txt
+setup.py
+PyBencoder3.egg-info/PKG-INFO
+PyBencoder3.egg-info/SOURCES.txt
+PyBencoder3.egg-info/dependency_links.txt
+PyBencoder3.egg-info/top_level.txt
+pybencoder/__init__.py
+pybencoder/bencoder.py
+pybencoder/benexceptions.py
+pybencoder/test/__init__.py
+pybencoder/test/test_bencoder.py

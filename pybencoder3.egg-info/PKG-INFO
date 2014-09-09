@@ -1,12 +1,12 @@
-Metadata-Version: 1.0
-Name: pybencoder
+Metadata-Version: 1.1
+Name: pybencoder3
 Version: 1.0
 Summary: Module to work with bencoded strings.
-Home-page: http://goodies.lemonsoftware.eu/
+Home-page: https://github.com/cristianav/PyBencoder
 Author: Cristian Năvălici
 Author-email: ncristian@lemonsoftware.eu
 License: LGPL
-Download-URL: http://goodies.lemonsoftware.eu/download/
+Download-URL: https://github.com/cristianav/PyBencoder/zipball/master
 Description: PyBencoder - your bencoded strings module
         -------------------------------------------
         
@@ -21,7 +21,7 @@ Description: PyBencoder - your bencoded strings module
          - decoding of the different bencoded elements
          - encoding of the allowed types (byte strings, integers, lists, and dictionaries).
         
-        Requires Python 2.6 or later.
+        Requires Python 3.0 or later.
         
 Keywords: bencoding,encode,decode,bittorrent
 Platform: POSIX

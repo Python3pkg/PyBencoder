@@ -3,26 +3,10 @@
 from setuptools import setup
 
 setup(
-    name = 'pybencoder',
+    name = 'PyBencoder3',
     version = '1.0',
     description = 'Module to work with bencoded strings.',
-    long_description = """\
-PyBencoder - your bencoded strings module
--------------------------------------------
-
-What is a Bencoded String?
-
-Bencode (pronounced like B encode) is the encoding used by the peer-to-peer file sharing system BitTorrent
-for storing and transmitting loosely structured data.
-
-For more info on bencoding check out `this <http://en.wikipedia.org/wiki/Bencode/>`_.
-
-It provides:
- - decoding of the different bencoded elements
- - encoding of the allowed types (byte strings, integers, lists, and dictionaries).
-
-Requires Python 2.6 or later.
-""",
+    long_description = open('README.txt').read(),
     author='Cristian Năvălici',
     author_email = 'ncristian@lemonsoftware.eu',
     url = 'https://github.com/cristianav/PyBencoder',
@@ -40,5 +24,6 @@ Requires Python 2.6 or later.
         "Programming Language :: Python :: 3",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-    packages = ['PyBencoder']
+    packages = ['pybencoder', 'pybencoder.test'],
+    test_suite = 'pybencoder.test.test_bencoder.PyBencoderTests'
     )

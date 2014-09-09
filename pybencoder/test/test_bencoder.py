@@ -65,7 +65,7 @@ class PyBencoderTests(unittest.TestCase):
         self.assertEqual(self.bencoder.encode(unknown_type), None)
 
 if __name__ == '__main__':
-    #unittest.main()
+    # unittest.main()
 
     #suite = unittest.TestSuite()
     #suite.addTest(BenIntTest("testEncodeNoInputData"))

@@ -17,12 +17,17 @@ It provides:
 Requirements
 ===========================
 
-Requires Python 2.6 or later.
+Requires Python 3 or later
 
 
 Installation
 ===========================
 
+python setup.py install
+
+To run test suite:
+
+python setup.py test
 
 Usage
 ===========================
@@ -30,7 +35,7 @@ Usage
 Import the module
 ------------------
 
-from bencoder import PyBencoder
+from pybencoder.bencoder import PyBencoder
 
 
 Encoding
