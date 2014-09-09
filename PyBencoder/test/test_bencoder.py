@@ -11,9 +11,10 @@ sys.path.append(root_dir)
 
 from bencoder import PyBencoder
 
+
 class PyBencoderTests(unittest.TestCase):
     ''' A test class for PyBencoder class '''
-    
+
     def setUp(self):
         self.bencoder = PyBencoder()
 
@@ -28,9 +29,9 @@ class PyBencoderTests(unittest.TestCase):
 
     def testEncodeStringInput(self):
         self.assertEqual(self.bencoder.encode("123"), "3:123")
-        
+
     def testEncodeStringNoASCIIData(self):
-        self.assertEqual(self.bencoder.encode('şţoâîăăşâß'), None)        
+        self.assertEqual(self.bencoder.encode('şţoâîăăşâß'), None)
 
     def testEncodeIntegerZero(self):
         self.assertEqual(self.bencoder.encode(0), "i0e")
@@ -40,9 +41,9 @@ class PyBencoderTests(unittest.TestCase):
 
     def testDecodeIntegerValidInput(self):
         self.assertEqual(self.bencoder.decode('i123e'), 123)
-        
+
     def testDecodeIntegerInvalidInput(self):
-        self.assertEqual(self.bencoder.decode('i12asd3e'), None)        
+        self.assertEqual(self.bencoder.decode('i12asd3e'), None)
 
     def testDecodeStringValidInput(self):
         self.assertEqual(self.bencoder.decode('3:red'), 'red')
@@ -55,21 +56,19 @@ class PyBencoderTests(unittest.TestCase):
 
     def testEncodeValidSimpleList(self):
         self.assertEqual(self.bencoder.encode([1, 2, 'string']), 'li1ei2e6:stringe')
-        
+
     def testEncodeValidComplexList(self):
         self.assertEqual(self.bencoder.encode([1, 2, [3, 4]]), 'li1ei2eli3ei4eee')
 
     def testEncodeNotAllowedType(self):
-        unknown_type = unicode
+        unknown_type = bool
         self.assertEqual(self.bencoder.encode(unknown_type), None)
-   
+
 if __name__ == '__main__':
     #unittest.main()
-    
+
     #suite = unittest.TestSuite()
     #suite.addTest(BenIntTest("testEncodeNoInputData"))
 
-
-    suite = unittest.TestLoader().loadTestsFromTestCase(PyBencoderTests)    
-    unittest.TextTestRunner(verbosity=3).run(suite)        
-       
+    suite = unittest.TestLoader().loadTestsFromTestCase(PyBencoderTests)
+    unittest.TextTestRunner(verbosity=3).run(suite)
