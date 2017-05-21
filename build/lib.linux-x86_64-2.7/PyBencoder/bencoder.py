@@ -15,7 +15,7 @@
 import sys
 
 
-from benexceptions import BenInvalidInputError, BenInvalidEncoded, BenInvalidMark
+from .benexceptions import BenInvalidInputError, BenInvalidEncoded, BenInvalidMark
     
 class PyBencoder(object):
     left_str = ''
@@ -38,8 +38,8 @@ class PyBencoder(object):
             self.obj = dec # used in __str__
             
             return dec.result
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
 
     def encode(self, input_data = None):
         try:
@@ -48,14 +48,14 @@ class PyBencoder(object):
             
             encob = self.get_bentype_encoder(input_data)
             return encob.encode(input_data)
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
     
 
     def get_bentype_encoder(self, elem):
         '''return the needed encoder for an elem'''
-        if isinstance(elem, tuple([int, long, bool])): return BenInt()
-        if isinstance(elem, tuple([basestring, buffer])): return BenString()
+        if isinstance(elem, tuple([int, int, bool])): return BenInt()
+        if isinstance(elem, tuple([str, buffer])): return BenString()
         if isinstance(elem, tuple([list, tuple])): return BenList()
         if isinstance(elem, tuple([dict])): return BenDict()
         
@@ -100,8 +100,8 @@ class BenInt(PyBencoder):
             self.result = int(raw_str[1:end_offset])
             
             return self.result
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
 
 
 
@@ -113,10 +113,10 @@ class BenString(PyBencoder):
         try:
             ascii_ver = input_data.decode('ascii')
             return "{0}:{1}".format(len(ascii_ver), ascii_ver)
-        except UnicodeDecodeError, e:
+        except UnicodeDecodeError as e:
             raise BenInvalidInputError(self, "Non-ASCII chars in the provided input")
-        except Exception, e:
-           print e
+        except Exception as e:
+           print(e)
            sys.exit()
 
         
@@ -148,8 +148,8 @@ class BenString(PyBencoder):
             self.result = decoded_str            
             
             return decoded_str
-        except Exception, e:
-           print e
+        except Exception as e:
+           print(e)
 
 
  
@@ -167,8 +167,8 @@ class BenList(PyBencoder):
             for elem in input_data: part_result += self.parent.encode(elem)
                 
             return "{0}{1}{2}".format(self.BENCODE_LIST_START, part_result, self.END_MARK)
-        except Exception, e:
-           print e
+        except Exception as e:
+           print(e)
 
 
     def decode(self, raw_str = ''):
@@ -186,8 +186,8 @@ class BenList(PyBencoder):
                 left = self.obj.left_str
     
             self.left_str = left[1:]
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
 
 
 
@@ -200,13 +200,13 @@ class BenDict(PyBencoder):
         ''' all keys are strings '''
         try:
             result = self.BENCODE_DICT_START
-            for k, v in input_data.iteritems():                
+            for k, v in input_data.items():                
                 result += self.parent.encode(str(k)) + self.parent.encode(v)
             result += self.END_MARK
             
             return result
-        except Exception, e:
-           print e  
+        except Exception as e:
+           print(e)  
 
     def decode(self, raw_str = ''):
         try:
@@ -225,8 +225,8 @@ class BenDict(PyBencoder):
                 self.result[k] = v
 
             return self.result
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
 
 
 

@@ -60,7 +60,7 @@ class PyBencoderTests(unittest.TestCase):
         self.assertEqual(self.bencoder.encode([1, 2, [3, 4]]), 'li1ei2eli3ei4eee')
 
     def testEncodeNotAllowedType(self):
-        unknown_type = unicode
+        unknown_type = str
         self.assertEqual(self.bencoder.encode(unknown_type), None)
    
 if __name__ == '__main__':
